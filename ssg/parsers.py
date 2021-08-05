@@ -4,7 +4,7 @@ from pathlib import Path
 class Parser:
     extensions: List[str] = []
 
-    def valida_extension(self, extension: str) -> bool:
+    def valid_extension(self, extension: str) -> bool:
         return extension in self.extensions
     
     def parse(self, path: Path, source: Path, dest: Path):
