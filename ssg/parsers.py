@@ -5,7 +5,7 @@ class Parser:
     def __init__(self) -> None:
         self.extensions: List[str] = list()
 
-    def validate_extension(self, extension: str) -> bool:
+    def valida_extension(self, extension: str) -> bool:
         return extension in self.extensions
     
     def parse(self, path: Path, source: Path, dest: Path):
