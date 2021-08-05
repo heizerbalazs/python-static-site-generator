@@ -2,8 +2,7 @@ from typing import ClassVar, List
 from pathlib import Path
 
 class Parser:
-    def __init__(self) -> None:
-        self.extensions: List[str] = list()
+    extensions: List[str] = []
 
     def valida_extension(self, extension: str) -> bool:
         return extension in self.extensions
