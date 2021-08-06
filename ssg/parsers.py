@@ -2,12 +2,13 @@ import shutil
 from typing import ClassVar, List
 from pathlib import Path
 
+
 class Parser:
     extensions: List[str] = []
 
     def valid_extension(self, extension: str) -> bool:
         return extension in self.extensions
-    
+
     def parse(self, path: Path, source: Path, dest: Path):
         raise NotImplementedError
 
@@ -21,4 +22,4 @@ class Parser:
             file.write(content)
 
     def copy(self, path: Path, source: Path, dest: Path):
-        shutil.copy(path, dest / path.relative_to(source))
+        shutil.copy2(path, dest / path.relative_to(source))
