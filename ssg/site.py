@@ -20,7 +20,10 @@ class Site:
             if path.is_dir():
                 self.create_dir(path)
 
-    def load_parser(self, extension: str):
+    def load_parser(self, extension: str) -> Parser:
         for parser in self.parsers:
             if parser.valid_extension(extension):
                 return parser
+
+    def run_parser(self, path: Path):
+        parser = self.load_parser(path.suffix)
