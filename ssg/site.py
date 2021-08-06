@@ -1,10 +1,14 @@
-from _typeshed import Self
+import parser
+from typing import List
 from pathlib import Path
+from ssg.parsers import Parser
+
 
 class Site:
-    def __init__(self, source: str, dest: str) -> None:
+    def __init__(self, source: str, dest: str, parsers: List[Parser] = None) -> None:
         self.source = Path(source)
         self.dest = Path(dest)
+        self.parsers = parsers or []
 
     def create_dir(self, path: Path) -> None:
         directory = self.dest / path.relative_to(self.source)
