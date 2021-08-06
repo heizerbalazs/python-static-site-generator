@@ -1,4 +1,5 @@
 import re
+from typing import Any
 from yaml import load, FullLoader
 from collections.abc import Mapping
 
@@ -12,3 +13,7 @@ class Content(Mapping):
         _, fm, content = cls.__regex.split(string, 2)
         metadata = load(fm, Loader=FullLoader)
         return cls(metadata, content)
+
+    def __init__(self, metadata: Any, content: str) -> None:
+        self.data = metadata
+        self.data['content'] = content
