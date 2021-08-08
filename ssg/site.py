@@ -1,3 +1,4 @@
+import sys
 import parser
 from typing import List
 from pathlib import Path
@@ -33,3 +34,7 @@ class Site:
             parser.parse(path, self.source, self.dest)
         else:
             print('Not Implemented')
+
+    @staticmethod
+    def error(message: str):
+        sys.stderr.write("\x1b[1;31m{}\n".format(message))
